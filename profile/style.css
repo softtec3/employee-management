@@ -1,0 +1,262 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+:root {
+  --primaryColor: #ff7810;
+}
+#container {
+  width: 50%;
+  min-height: 100vh;
+  max-height: 100vh;
+  overflow-y: auto;
+  margin: 0 auto;
+  border: 1px solid gainsboro;
+  padding: 10px;
+  padding-bottom: 50px;
+}
+.main {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.topBar {
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  left: 0;
+  top: 0;
+  background-color: white;
+}
+.topBar form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.btn {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--primaryColor);
+  color: #01132e;
+  display: block;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 16px;
+}
+/* .topBar h3 {
+  text-transform: capitalize;
+} */
+.presentAddressContainer h4 {
+  margin-bottom: 10px;
+}
+.permanentAddressContainer h4 {
+  margin-bottom: 10px;
+}
+.optional {
+  color: gray;
+}
+.main .detailsForm {
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+}
+.main .detailsForm form {
+  margin-top: 15px;
+  border: 1px solid gainsboro;
+  padding: 10px;
+  border-radius: 5px;
+}
+.formField {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 15px;
+}
+.formField input,
+select {
+  border: 1px solid gainsboro;
+  border-radius: 3px;
+  padding: 8px;
+  font-size: 17px;
+  outline: none;
+  width: 100%;
+}
+#numberCode select {
+  border: 1px solid gainsboro;
+  border-radius: 3px;
+  padding: 7px;
+  font-size: 17px;
+  outline: none;
+}
+.formField select {
+  text-transform: uppercase;
+}
+.sameAs {
+  margin-bottom: 15px;
+}
+.profileImageUpload {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+.profileImageContainer {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  overflow: hidden;
+}
+.profileImageContainer img {
+  width: 100%;
+  height: 100%;
+}
+.profileImageUpload .formField {
+  flex: 1;
+}
+.saveChangesBtn {
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  width: 150px;
+  margin: 0 auto;
+}
+.warningContainer {
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+.warning {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: rgba(220, 220, 220, 0.3);
+  padding: 10px;
+  border-radius: 5px;
+}
+#nidContainer,
+#passportContainer,
+#drivingLicenseContainer,
+#voterIdCardContainer {
+  display: none;
+}
+.required {
+  color: red;
+  font-size: 15px;
+  font-weight: bold;
+}
+.headingDiv {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.headingDiv p {
+  font-size: 17px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+.formFlex {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.formFlex2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.formFlex .formField {
+  width: 100%;
+}
+
+#numberCode {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 5px;
+}
+#numberCode select {
+  max-width: 100px;
+}
+#emergency form h4 {
+  margin-bottom: 10px;
+}
+.contactContainer {
+  border: 1px solid gainsboro;
+  padding: 8px;
+  margin-bottom: 20px;
+  border-radius: 3px;
+}
+.contactContainer h4 {
+  text-align: center;
+  background-color: white;
+  max-width: 170px;
+  margin: 0 auto;
+  margin-top: -18px;
+  display: flex;
+  gap: 5px;
+  text-align: center;
+  justify-content: center;
+}
+.contactForm {
+  padding: 10px;
+}
+/* mobile protection */
+#mobileView {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  display: none;
+  padding: 10px;
+  text-align: center;
+}
+#mobileView p {
+  font-size: 24px;
+}
+/* passport preview */
+#passportPreview {
+  padding: 10px 0;
+}
+#passportPreviewImg {
+  width: 50%;
+  height: 250px;
+  border: 1px solid black;
+  margin: 10px 0;
+}
+.docPreview {
+  padding: 10px 0;
+}
+.docPreviewImg {
+  width: 100%;
+  height: 250px;
+  border: 1px solid black;
+  margin: 10px 0;
+  object-fit: contain;
+}
+.formFlex .docPreview {
+  max-width: 50%;
+}
+@media only screen and (max-width: 1100px) {
+  #mobileView {
+    display: flex;
+  }
+}

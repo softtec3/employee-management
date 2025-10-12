@@ -1,0 +1,167 @@
+/* Invoices styles */
+#navLinks {
+  width: 100%;
+  display: flex;
+  gap: 5px;
+}
+#navLinks li {
+  list-style: none;
+  padding: 5px;
+  border: 1px solid var(--primaryColor);
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+#navLinks li:hover {
+  background-color: rgba(220, 220, 220, 0.2);
+}
+.sectionHeader {
+  border: 1px solid gainsboro;
+  padding: 5px;
+  border-radius: 3px;
+  box-shadow: var(--primaryShadow);
+  font-size: 24px;
+  font-weight: 500;
+}
+.section {
+  display: flex;
+  flex-direction: column;
+}
+/* Loader table styles */
+#mainContent .loaderTable {
+  margin-top: 20px;
+  max-width: 100%;
+  height: 80vh;
+  max-height: 80vh;
+  overflow-y: auto;
+  overflow-x: auto;
+}
+#mainContent .loaderTable table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 1000px;
+  border-radius: 3px;
+  box-shadow: var(--primaryShadow);
+}
+#mainContent .loaderTable table thead {
+  background-color: var(--primaryColor);
+  color: white;
+}
+#mainContent .loaderTable table th,
+#mainContent .loaderTable table td {
+  padding: 5px;
+  border: 1px solid gainsboro;
+  text-align: center;
+}
+
+.payNowBtn {
+  background-color: green;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  padding: 3px 5px;
+  cursor: pointer;
+  font-size: 14px;
+  text-decoration: none;
+}
+.pendingActions a,
+button {
+  padding: 5px;
+  border-radius: 3px;
+  border: none;
+  background: none;
+  font-size: 16px;
+  color: white;
+  font-weight: 500;
+}
+.pendingActions a {
+  background-color: green;
+}
+.pendingActions button {
+  background-color: red;
+  margin-left: 10px;
+  cursor: pointer;
+}
+#insertInvoice {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.2);
+  top: 0;
+  left: 0;
+  display: none;
+}
+/* Request section styles */
+.defaultForm {
+  padding: 20px;
+  box-shadow: var(--primaryShadow);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 450px;
+  background-color: white;
+  border-radius: 3px;
+  position: relative;
+}
+.insertInvoiceClose {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
+.defaultForm h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+.defaultForm .formElement {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.defaultForm .formElement input,
+select {
+  padding: 8px;
+  outline: none;
+  border-radius: 3px;
+  border: 1px solid gainsboro;
+}
+.defaultForm .formElement button {
+  padding: 8px;
+  border: none;
+  background-color: var(--primaryColor);
+  color: white;
+  font-weight: 500;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+/* Reject popup */
+#rejectPopup {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.2);
+  top: 0;
+  left: 0;
+  display: none;
+}
+
+/* Custom invoice */
+#customInvoice {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#customInvoice form {
+  min-width: 450px;
+  max-width: 450px;
+  margin-top: 20px;
+  max-height: 85vh;
+  overflow-y: auto;
+}

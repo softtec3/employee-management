@@ -1,0 +1,6 @@
+[22-Sep-2025 11:04:32 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'imran'@'localhost' (using password: YES) in /home/softtec3/soft-techtechnologyllc.com/employee_management/php/db_connect.php:9
+Stack trace:
+#0 /home/softtec3/soft-techtechnologyllc.com/employee_management/php/db_connect.php(9): mysqli->__construct()
+#1 /home/softtec3/soft-techtechnologyllc.com/employee_management/login/index.php(3): require_once('/home/softtec3/...')
+#2 {main}
+  thrown in /home/softtec3/soft-techtechnologyllc.com/employee_management/php/db_connect.php on line 9

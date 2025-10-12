@@ -1,0 +1,408 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+:root {
+  --primaryColor: #ff7810;
+  --primaryShadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+#container {
+  display: flex;
+  height: 100vh;
+  gap: 0px;
+}
+.sidebar {
+  width: 350px;
+  padding: 10px;
+  border-right: 1px solid gainsboro;
+}
+.sidebar .logo {
+  width: 150px;
+}
+.main {
+  flex: 1;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Sidebar styles */
+.sidebar .profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  border: 1px solid var(--primaryColor);
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  gap: 15px;
+}
+.sidebar .profile .proImg {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--primaryColor);
+}
+
+.sidebar .profile .proImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.proDesc {
+  text-align: center;
+}
+.proDesc p {
+  font-weight: bold;
+}
+.proDesc table th {
+  text-align: left;
+  padding-right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2px;
+}
+.proDesc table td {
+  text-align: left;
+}
+.loginBtn {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--primaryColor);
+  color: #01132e;
+  display: block;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 0 auto;
+  margin-top: 15px;
+}
+.btn {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--primaryColor);
+  color: #01132e;
+  margin-top: 15px;
+  display: block;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 16px;
+}
+.links a {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 15px;
+  border: 1px solid var(--primaryColor);
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+.links a i {
+  color: grey;
+}
+.links a:hover {
+  background-color: rgba(220, 220, 220, 0.2);
+}
+
+/* New Tasks Page */
+.newTasksContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+.runningTask {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: rgba(220, 220, 220, 0.3);
+  padding: 10px;
+  border-radius: 5px;
+}
+.givenTasks table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+.givenTasks table thead {
+  background-color: rgba(220, 220, 220, 0.3);
+  color: black;
+}
+.givenTasks table thead th {
+  padding: 5px;
+  font-size: 18px;
+  border: 1px solid gainsboro;
+}
+.givenTasks table td {
+  border: 1px solid gainsboro;
+  padding: 5px;
+  text-align: center;
+}
+.givenTasks #viewButton {
+  color: var(--primaryColor);
+  font-weight: bold;
+  cursor: pointer;
+}
+.givenTasks #status {
+  padding: 5px;
+  text-transform: uppercase;
+  border: 1px solid gainsboro;
+  border-radius: 3px;
+  outline: none;
+  font-weight: bold;
+}
+
+#taskViewPopup {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+#taskViewPopup .taskViewContainer {
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  min-height: 200px;
+  min-width: 400px;
+  max-width: 50%;
+  max-height: 50vh;
+  position: relative;
+}
+
+#taskViewPopup .taskViewContainer .taskViewCloseBtn {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  cursor: pointer;
+  font-size: 18px;
+}
+#taskViewPopup .taskViewContainer p {
+  margin-top: 20px;
+}
+
+/* top bar styles */
+.topbar {
+  display: flex;
+  align-items: center;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  border-radius: 5px;
+  justify-content: space-between;
+}
+.topbar img {
+  width: 150px;
+}
+
+/* login popup */
+#loginPopup {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: white;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+#loginPopup .loginPopupContainer {
+  min-height: 200px;
+  width: 400px;
+  border: 1px solid var(--primaryColor);
+  border-radius: 5px;
+  padding: 10px;
+  position: relative;
+  padding-top: 25px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+#loginPopupCloseBtn {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  cursor: pointer;
+  color: red;
+}
+.loginDefault p {
+  font-weight: 500;
+}
+.passkeyContainer {
+  margin-top: 15px;
+}
+.passkeyContainer label {
+  font-size: 18px;
+  margin-bottom: 5px;
+  display: block;
+}
+.inputField {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.inputField input {
+  flex: 1;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+  outline: none;
+  border: 1px solid gainsboro;
+}
+.inputField button {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--primaryColor);
+  color: #01132e;
+  display: block;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 16px;
+}
+.changePasskeyBtn {
+  margin: 0 auto;
+  margin-top: 15px;
+}
+#changePasskey {
+  display: none;
+}
+.changePasskey {
+  display: flex;
+  flex-direction: column;
+  padding: 5px 0;
+  gap: 10px;
+}
+.changePasskey h3 {
+  text-align: center;
+  font-size: 21px;
+}
+.cpDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.cpDiv input {
+  border: 1px solid gainsboro;
+  padding: 8px;
+  outline: none;
+  border-radius: 5px;
+}
+.changePasskey .cpActionsBtns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+.changePasskey .cpActionsBtns button:last-child {
+  background-color: red;
+  color: white;
+}
+
+/* login pages styles */
+#loginContainer {
+  width: 100%;
+  min-height: 100vh;
+  max-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#loginContainer .loginForm {
+  width: 400px;
+  padding: 20px;
+  box-shadow: var(--primaryShadow);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: white;
+  border-radius: 5px;
+}
+#loginContainer .loginForm h1 {
+  text-align: center;
+}
+#loginContainer .loginForm .formContainer div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  margin-bottom: 15px;
+}
+#loginContainer .loginForm .formContainer div input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid gainsboro;
+  outline: none;
+  border-radius: 5px;
+}
+/* #loginContainer .loginForm .formContainer div button {
+  padding: 8px;
+  background-color: var(--primaryColor);
+  font-size: 16px;
+  border: none;
+  color: ;
+  cursor: pointer;
+  border-radius: 5px;
+} */
+#errorSpan {
+  display: block;
+  text-align: center;
+  font-size: 14px;
+  color: red;
+}
+.passField {
+  position: relative;
+}
+#eyeIcon {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+}
+
+/* mobile protection */
+#mobileView {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  display: none;
+  padding: 10px;
+  text-align: center;
+}
+#mobileView p {
+  font-size: 24px;
+}
+
+@media only screen and (max-width: 1280px) {
+  #mobileView {
+    display: flex;
+  }
+}

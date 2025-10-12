@@ -1,0 +1,52 @@
+[22-Sep-2025 11:14:54 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'softtec3_emp_llc.employee_personal_details' doesn't exist in /home/softtec3/soft-techtechnologyllc.com/employee_management/index/index.php:17
+Stack trace:
+#0 /home/softtec3/soft-techtechnologyllc.com/employee_management/index/index.php(17): mysqli->prepare()
+#1 {main}
+  thrown in /home/softtec3/soft-techtechnologyllc.com/employee_management/index/index.php on line 17
+[22-Sep-2025 11:15:10 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'softtec3_emp_llc.employee_personal_details' doesn't exist in /home/softtec3/soft-techtechnologyllc.com/employee_management/index/index.php:17
+Stack trace:
+#0 /home/softtec3/soft-techtechnologyllc.com/employee_management/index/index.php(17): mysqli->prepare()
+#1 {main}
+  thrown in /home/softtec3/soft-techtechnologyllc.com/employee_management/index/index.php on line 17
+[22-Sep-2025 11:15:11 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'softtec3_emp_llc.employee_personal_details' doesn't exist in /home/softtec3/soft-techtechnologyllc.com/employee_management/index/index.php:17
+Stack trace:
+#0 /home/softtec3/soft-techtechnologyllc.com/employee_management/index/index.php(17): mysqli->prepare()
+#1 {main}
+  thrown in /home/softtec3/soft-techtechnologyllc.com/employee_management/index/index.php on line 17
+[22-Sep-2025 11:15:12 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'softtec3_emp_llc.employee_personal_details' doesn't exist in /home/softtec3/soft-techtechnologyllc.com/employee_management/index/index.php:17
+Stack trace:
+#0 /home/softtec3/soft-techtechnologyllc.com/employee_management/index/index.php(17): mysqli->prepare()
+#1 {main}
+  thrown in /home/softtec3/soft-techtechnologyllc.com/employee_management/index/index.php on line 17
+[22-Sep-2025 11:15:13 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'softtec3_emp_llc.employee_personal_details' doesn't exist in /home/softtec3/soft-techtechnologyllc.com/employee_management/index/index.php:17
+Stack trace:
+#0 /home/softtec3/soft-techtechnologyllc.com/employee_management/index/index.php(17): mysqli->prepare()
+#1 {main}
+  thrown in /home/softtec3/soft-techtechnologyllc.com/employee_management/index/index.php on line 17
+[22-Sep-2025 11:15:14 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'softtec3_emp_llc.employee_personal_details' doesn't exist in /home/softtec3/soft-techtechnologyllc.com/employee_management/index/index.php:17
+Stack trace:
+#0 /home/softtec3/soft-techtechnologyllc.com/employee_management/index/index.php(17): mysqli->prepare()
+#1 {main}
+  thrown in /home/softtec3/soft-techtechnologyllc.com/employee_management/index/index.php on line 17
+[22-Sep-2025 11:15:15 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'softtec3_emp_llc.employee_personal_details' doesn't exist in /home/softtec3/soft-techtechnologyllc.com/employee_management/index/index.php:17
+Stack trace:
+#0 /home/softtec3/soft-techtechnologyllc.com/employee_management/index/index.php(17): mysqli->prepare()
+#1 {main}
+  thrown in /home/softtec3/soft-techtechnologyllc.com/employee_management/index/index.php on line 17
+[22-Sep-2025 11:16:14 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'softtec3_emp_llc.employee_personal_details' doesn't exist in /home/softtec3/soft-techtechnologyllc.com/employee_management/index/index.php:17
+Stack trace:
+#0 /home/softtec3/soft-techtechnologyllc.com/employee_management/index/index.php(17): mysqli->prepare()
+#1 {main}
+  thrown in /home/softtec3/soft-techtechnologyllc.com/employee_management/index/index.php on line 17
+[22-Sep-2025 11:16:15 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'softtec3_emp_llc.employee_personal_details' doesn't exist in /home/softtec3/soft-techtechnologyllc.com/employee_management/index/index.php:17
+Stack trace:
+#0 /home/softtec3/soft-techtechnologyllc.com/employee_management/index/index.php(17): mysqli->prepare()
+#1 {main}
+  thrown in /home/softtec3/soft-techtechnologyllc.com/employee_management/index/index.php on line 17
+[22-Sep-2025 11:16:15 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'softtec3_emp_llc.employee_personal_details' doesn't exist in /home/softtec3/soft-techtechnologyllc.com/employee_management/index/index.php:17
+Stack trace:
+#0 /home/softtec3/soft-techtechnologyllc.com/employee_management/index/index.php(17): mysqli->prepare()
+#1 {main}
+  thrown in /home/softtec3/soft-techtechnologyllc.com/employee_management/index/index.php on line 17
+[06-Oct-2025 04:00:40 UTC] PHP Warning:  Undefined variable $w1_style in /home/softtec3/us.soft-techtechnologyllc.com/components/topbar.php on line 56
+[06-Oct-2025 04:00:40 UTC] PHP Warning:  Undefined variable $w2_style in /home/softtec3/us.soft-techtechnologyllc.com/components/topbar.php on line 60
