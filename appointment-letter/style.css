@@ -1,0 +1,78 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+p {
+  font-size: 15px;
+  line-height: 20px;
+}
+.container {
+  width: 794px;
+  height: 1123px;
+  margin: 0 auto;
+  background-image: url("./background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 150px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 80px;
+  /* overflow-y: auto; */
+}
+#mainAppointmentContainer {
+  max-height: 90vh;
+  overflow-y: auto;
+}
+/* .container .content {
+} */
+.content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.content h1 {
+  text-align: center;
+  text-decoration: underline;
+}
+.content .date {
+  text-align: right;
+}
+.content .contact {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.termsContainer .terms {
+  text-decoration: underline;
+}
+.termsContainer ul {
+  margin-left: 40px;
+}
+.termsContainer ul li {
+  margin-bottom: 10px;
+}
+.detailsMain table {
+  width: 70%;
+}
+.detailsMain td {
+  padding: 0px 5px;
+}
+.signature {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+@media print {
+  body,
+  .container {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    background-image: url("./background.jpg") !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+  }
+}
