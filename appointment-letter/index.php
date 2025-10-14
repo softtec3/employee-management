@@ -4,7 +4,7 @@ require_once('../php/db_connect.php');
 
 // Check if user is logged in
 if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
-    header("Location: ./login/index.php");
+    header("Location: ../login/index.php");
     exit();
 }
 
@@ -99,8 +99,8 @@ if ($profile_data["status"] != "approved") {
                                 ?>
                                 <p>Mobile No. <?php echo htmlspecialchars($profile_data["contact_number"]) ?></p>
                             </div>
-                            <p class="dear"><?php echo htmlspecialchars($profile_data["first_name"]);
-                                            echo " " . htmlspecialchars($profile_data["last_name"]) ?></p>
+                            <p class="dear">Dear <?php echo htmlspecialchars($profile_data["first_name"]);
+                                                    echo " " . htmlspecialchars($profile_data["last_name"]) ?>,</p>
                             <p>Please refer in the meeting we had with you. We are pleased to offer you an appointment in our company as “Graphic Designer” with “Soft-Tech Technology”. You will be initially at Jashore on joining. Your appointment will be subject to the terms and conditions and the Rules and Regulations of the company prevailing from time to time Details and other allowances & perquisites are indicated. <br>
                                 We hope to provide you a challenging and rewarding Career ensuring a high level of job satisfaction and sample opportunities for career development.
                             </p>

@@ -200,16 +200,33 @@ echo "<!-- Debug: profile_image_path = " . $profile_image_path . " -->";
         <a href="../started-tasks/index.php"><i class="fas fa-play-circle"></i> Started Tasks</a>
         <a href="../pending-tasks/index.php"><i class="fas fa-hourglass-half"></i> Pending Tasks</a>
         <a href="../invoices/index.php"><i class="fa-solid fa-file-invoice-dollar"></i></i> Invoices</a>
-        <a style="<?php
-                    if ($profile_data["status"] && $profile_data["status"] != "approved") {
-                        echo "pointer-events:none";
-                    }
-                    ?>" href="../appointment-letter/index.php"><i class="fa-solid fa-file-signature"></i> Appointment Letter</a>
-        <a style="<?php
-                    if ($document_data["status"] && $document_data["status"] != "approved") {
-                        echo "pointer-events:none";
-                    }
-                    ?>" href="../documents/index.php"><i class="fa-solid fa-folder-open"></i> Documents</a>
+        <?php
+        if ($profile_data["status"] ?? NULL) {
+            $doc_con = "";
+            if ($profile_data["status"] && $profile_data["status"] != "approved") {
+                $doc_con = "pointer-events:none";
+            }
+            echo "
+            <a style='$doc_con' href='../appointment-letter/index.php'><i class='fa-solid fa-folder-open'></i> Appointment letter</a>";
+        } else {
+            echo "";
+        }
+        ?>
+
+
+        <?php
+        if ($document_data["status"] ?? NULL) {
+            $doc_con = "";
+            if ($document_data["status"] && $document_data["status"] != "approved") {
+                $doc_con = "pointer-events:none";
+            }
+            echo "
+            <a style='$doc_con' href='../documents/index.php'><i class='fa-solid fa-folder-open'></i> Documents</a>";
+        } else {
+            echo "";
+        }
+        ?>
+
     </div>
     <!-- Profile login popup -->
     <div id="loginPopup" style="display:none">
