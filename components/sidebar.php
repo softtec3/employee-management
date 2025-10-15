@@ -198,6 +198,7 @@ echo "<!-- Debug: profile_image_path = " . $profile_image_path . " -->";
         <a href="../completed-tasks/index.php"><i class="fas fa-check-circle"></i> Completed Tasks</a>
         <a href="../started-tasks/index.php"><i class="fas fa-play-circle"></i> Started Tasks</a>
         <a href="../pending-tasks/index.php"><i class="fas fa-hourglass-half"></i> Pending Tasks</a>
+        <a href="../tasks-report/index.php"> <i class="fa-solid fa-list-check"></i> Tasks Report</a>
         <a href="../invoices/index.php"><i class="fa-solid fa-file-invoice-dollar"></i></i> Invoices</a>
         <?php
         if ($profile_data["status"] ?? NULL) {

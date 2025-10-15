@@ -422,6 +422,18 @@ a {
   color: var(--primaryColor);
   font-weight: bold;
 }
+.filterAndPrint select,
+.filterAndPrint button {
+  padding: 8px;
+  border: none;
+  outline: none;
+  border: 1px solid gainsboro;
+  border-radius: 3px;
+}
+.filterAndPrint button {
+  margin-top: 0;
+  border: none;
+}
 /* mobile protection */
 #mobileView {
   position: fixed;
