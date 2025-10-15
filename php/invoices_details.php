@@ -1,4 +1,13 @@
 <?php
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'PHPMailer/src/Exception.php';
+require 'PHPMailer/src/PHPMailer.php';
+require 'PHPMailer/src/SMTP.php';
+include_once("config.php");
+
 $all_invoices = [];
 // Get all invoices details
 $sql = $conn->query("SELECT * FROM invoices");
@@ -64,9 +73,6 @@ $rejected_invoices = array_values($rejected_filter);
 
 
 
-
-
-
 // get create id and store details
 if (isset($_GET["create_id"]) && $_GET["create_id"] != "") {
     $create_id = $_GET["create_id"];
@@ -127,6 +133,7 @@ if (isset($_POST["invoice_purpose"]) && $_POST["invoice_purpose"] != "") {
 
 if (isset($_GET["approveId"]) && $_GET["approveId"]) {
     $invoice_id = $_GET["approveId"];
+    $customer_email = $_GET["customer_email"];
     $status = "paid";
     $stmt = $conn->prepare("UPDATE invoices SET status=? WHERE id=?");
     if (!$stmt) {
@@ -137,7 +144,214 @@ if (isset($_GET["approveId"]) && $_GET["approveId"]) {
     if (!$stmt->execute()) {
         die("SQL execution problem" . $stmt->error);
     }
-    header("Location: ./");
+
+    $stmt->close();
+
+
+    // email sent logics
+    $product = $_GET["product"];
+    $to = $customer_email;
+    $subject = "";
+    $body = "body";
+
+    if ($product == "product_1") {
+        $subject = "Thank you for purchasing Single Product E-commerce Landing page (Core codeing)";
+        $body = "
+            <html>
+  <head>
+    <meta charset='UTF-8'>
+    <title>Product Purchase Confirmation</title>
+  </head>
+  <body style='font-family: Arial, sans-serif; background-color: #f8f9fa; margin: 0; padding: 20px;'>
+    <table cellpadding='0' cellspacing='0' width='100%' style='max-width: 600px; background-color: #ffffff; border-radius: 6px; box-shadow: 0 0 8px rgba(0,0,0,0.08); border-collapse: collapse;'>
+      <tr>
+        <td style='padding: 20px; text-align: left;'>
+          <h2 style='color: #333333;font-size: 18px;'>Product Description</h2><p style='color: #555555;margin-top:-15px'>This project is a single-product e-commerce landing page with a front-end and an admin dashboard, all built using HTML, Tailwind CSS, and JavaScript.The front-end offers a smooth shopping experience with responsive product listings and a shopping cart, while the integrated dashboard provides a streamlined interface for managing products and orders.
+          </p> <br/>
+          <h3 style='color: #333333; margin: 0px; font-size: 16px;'>Template Features</h3><span style='color: #555555;'>Single Product E-commerce Landing Page</span><br/>
+          <h3 style='color: #333333; margin: 0px; font-size: 16px;'>Layout Features</h3><span style='color: #555555;'>Front-End</span>
+          <h3 style='color: #333333; margin: 15px 0 5px 0; font-size: 16px;'>Support</h3><span style='color: #555555;'>N/A</span> <br/>
+          <h4 style='color: #333333; margin: 0px; font-size: 15px;'>Best regards,</h4><span style='margin: 0px; color: #555555;'>Soft-Tech Technology LLC</span>
+            <a href='https://soft-techtechnologyllc.com/' style='color: #007BFF; text-decoration: none;'>Visit Our Website</a> <a href='mailto:contact@soft-techtechnologyllc.com' style='color: #007BFF; text-decoration: none;'>
+              contact@soft-techtechnologyllc.com
+            </a>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
+        ";
+    }
+    if ($product == "product_2") {
+        $subject = "Thank you for purchasing Multi-Products E-commerce Site (Front-End with Dashboard)";
+        $body = "
+        <html>
+  <head>
+    <meta charset='UTF-8'>
+    <title>Product Purchase Confirmation</title>
+  </head>
+  <body style='font-family: Arial, sans-serif; background-color: #f8f9fa; margin: 0; padding: 20px;'>
+    <table cellpadding='0' cellspacing='0' width='100%' style='max-width: 600px; background-color: #ffffff; border-radius: 6px; box-shadow: 0 0 8px rgba(0,0,0,0.08); border-collapse: collapse;'>
+      <tr>
+        <td style='padding: 20px; text-align: left;'>
+          <h2 style='color: #333333;font-size: 18px;'>Product Description</h2><p style='color: #555555;margin-top:-15px'>This project is a multi-product e-commerce site with a front-end and an admin dashboard, all built using HTML, Tailwind CSS, and JavaScript. The front-end offers a smooth shopping experience with responsive product listings and a shopping cart, while the integrated dashboard provides a streamlined interface for managing products and orders. The use of Tailwind CSS ensures a modern, mobile-first design, making the entire platform both visually appealing and highly functional across all devices.
+          </p> <br/>
+          <h3 style='color: #333333; margin: 0px; font-size: 16px;'>Template Features</h3><span style='color: #555555;'>Multi-Products E-commerce Site</span>
+          <span style='color: #555555;'>Front-End</span>
+          <span style='color: #555555;'>Admin Panel</span>
+          <span style='color: #555555;'>One-page E-commerce Landing page</span><br/>
+          <h3 style='color: #333333; margin: 0px; font-size: 16px;'>Layout Features</h3><span style='color: #555555;'>Responsive Design</span>
+          <h3 style='color: #333333; margin: 15px 0 5px 0; font-size: 16px;'>Support</h3><span style='color: #555555;'>N/A</span> <br/>
+          <h4 style='color: #333333; margin: 0px; font-size: 15px;'>Best regards,</h4><span style='margin: 0px; color: #555555;'>Soft-Tech Technology LLC</span>
+            <a href='https://soft-techtechnologyllc.com/' style='color: #007BFF; text-decoration: none;'>Visit Our Website</a> <a href='mailto:contact@soft-techtechnologyllc.com' style='color: #007BFF; text-decoration: none;'>
+              contact@soft-techtechnologyllc.com
+            </a>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
+
+        ";
+    }
+    if ($product == "product_3") {
+        $subject = "Thank you for purchasing Complete E-commerce Website with Admin Panel";
+        $body = "<html>
+  <head>
+    <meta charset='UTF-8'>
+    <title>Product Purchase Confirmation</title>
+  </head>
+  <body style='font-family: Arial, sans-serif; background-color: #f8f9fa; margin: 0; padding: 20px;'>
+    <table cellpadding='0' cellspacing='0' width='100%' style='max-width: 600px; background-color: #ffffff; border-radius: 6px; box-shadow: 0 0 8px rgba(0,0,0,0.08); border-collapse: collapse;'>
+      <tr>
+        <td style='padding: 20px; text-align: left;'>
+          <h2 style='color: #333333;font-size: 18px;'>Product Description</h2><p style='color: #555555;margin-top:-15px'>This comprehensive e-commerce website with an integrated admin panel is your complete solution for online retail. The platform provides a seamless shopping experience for customers and gives you full control through an intuitive backend. Manage products, process orders, track inventory, and analyze sales effortlessly. Launch your online store quickly and professionally.</p> <br/>
+          <h3 style='color: #333333; margin: 0px; font-size: 16px;'>Template Features</h3><span style='color: #555555;'>Attractive Design</span>
+          <span style='color: #555555;'>Front-End and Back-End</span>
+          <span style='color: #555555;'>Admin panel</span><br/>
+          <h3 style='color: #333333; margin: 0px; font-size: 16px;'>Layout Features</h3><span style='color: #555555;'>Responsive Design</span>
+          <h3 style='color: #333333; margin: 15px 0 5px 0; font-size: 16px;'>Support</h3><span style='color: #555555;'>Custome Database configuration.</span>
+          <span style='color: #555555;'>Website Customization</span><br/>
+          <h4 style='color: #333333; margin: 0px; font-size: 15px;'>Best regards,</h4><span style='margin: 0px; color: #555555;'>Soft-Tech Technology LLC</span>
+            <a href='https://soft-techtechnologyllc.com/' style='color: #007BFF; text-decoration: none;'>Visit Our Website</a> <a href='mailto:contact@soft-techtechnologyllc.com' style='color: #007BFF; text-decoration: none;'>
+              contact@soft-techtechnologyllc.com
+            </a>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
+";
+    }
+    if ($product == "product_4") {
+        $subject = "Thank you for purchasing Complete E-commerce Website without support";
+        $body = "
+        <html>
+  <head>
+    <meta charset='UTF-8'>
+    <title>Product Purchase Confirmation</title>
+  </head>
+  <body style='font-family: Arial, sans-serif; background-color: #f8f9fa; margin: 0; padding: 20px;'>
+    <table cellpadding='0' cellspacing='0' width='100%' style='max-width: 600px; background-color: #ffffff; border-radius: 6px; box-shadow: 0 0 8px rgba(0,0,0,0.08); border-collapse: collapse;'>
+      <tr>
+        <td style='padding: 20px; text-align: left;'>
+          <h2 style='color: #333333;font-size: 18px;'>Product Description</h2><span style='color: #555555;margin-top:-15px'>This comprehensive e-commerce website with an integrated admin panel is your complete solution for online retail. The platform provides a seamless shopping experience for customers and gives you full control through an intuitive backend. Manage products, process orders, track inventory, and analyze sales effortlessly. Launch your online store quickly and professionally.</span> <br/>
+          <h3 style='color: #333333; margin: 0px; font-size: 16px;'>Template Features</h3><span style='color: #555555;'>E-Commerce</span>
+          <span style='color: #555555;'>Front-End</span>
+          <span style='color: #555555;'>Back-End</span>
+          <span style='color: #555555;'>Admin Panel</span><br/>
+          <h3 style='color: #333333; margin: 0px; font-size: 16px;'>Layout Features</h3><span style='color: #555555;'>Responsive Design</span>
+          <h3 style='color: #333333; margin: 15px 0 5px 0; font-size: 16px;'>Support</h3><span style='color: #555555;'>N/A</span> <br/>
+          <h4 style='color: #333333; margin: 0px; font-size: 15px;'>Best regards,</h4><span style='margin: 0px; color: #555555;'>Soft-Tech Technology LLC</span>
+            <a href='https://soft-techtechnologyllc.com/' style='color: #007BFF; text-decoration: none;'>Visit Our Website</a> <a href='mailto:contact@soft-techtechnologyllc.com' style='color: #007BFF; text-decoration: none;'>
+              contact@soft-techtechnologyllc.com
+            </a>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
+";
+    }
+
+
+
+
+
+
+
+
+
+    $mail = new PHPMailer(true);
+
+    try {
+        // Server settings
+        $mail->isSMTP();
+        $mail->Host = $credential["host"];
+        $mail->SMTPAuth = true;
+        $mail->Username = $credential["username"];
+        $mail->Password = $credential["password"];
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+        $mail->Port = $credential["port"];
+
+        // Sender and recipient
+        $mail->setFrom('sales1@soft-techtechnologyllc.com', 'SoftTech Technology LLC');
+        $mail->addAddress($to);
+
+        // Content
+        $mail->isHTML(true);
+        $mail->Subject = $subject;
+        $mail->Body = nl2br($body);
+
+        $mail->send();
+
+        // Save email info to database
+        $sql = "CREATE TABLE IF NOT EXISTS emails(
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            product VARCHAR(255) NOT NULL,
+            recipent VARCHAR(100) NOT NULL,
+            subject TEXT NOT NULL,
+            body TEXT NOT NULL,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        )";
+        if ($conn->query($sql) != TRUE) {
+            echo "Error creating emails table" . $conn->error;
+        }
+
+        $stmt = $conn->prepare("INSERT INTO emails(product, recipent, subject, body) VALUES (?,?,?,?)");
+
+        if (!$stmt) {
+            die("Preparing error: " . $conn->error);
+        }
+        $stmt->bind_param("ssss", $product, $to, $subject, $body);
+
+        if (!$stmt->execute()) {
+            die("Execution error:" . $stmt->error);
+        }
+
+        echo "✅ Message sent successfully! <br/>";
+        echo "Successfully saved to database. <br/>";
+        echo "Wait....";
+        echo "<script>
+            setTimeout(()=>{
+                window.location.href = '../invoices/index.php';
+            },1000)
+        </script>";
+    } catch (Exception $e) {
+        echo "❌ Message could not be sent. Mailer Error: {$mail->ErrorInfo} <br/>";
+        echo "Wait.. It will auto redirect to home page after 10 second";
+        echo "<script>
+            setTimeout(()=>{
+                window.location.href = '../invoices/index.php';
+            },9000)
+        </script>";
+    }
+
+
+
+    // email sent logics
+
+    // header("Location: ./");
 }
 
 // Reject invoice

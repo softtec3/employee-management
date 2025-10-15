@@ -183,7 +183,7 @@ if (!empty($profile_data['profile_image'])) {
                 <td>{$pending["customer_name"]}</td>
                 <td>$ {$pending["payable_amount"]}</td>
                 <td style='color: orangered; font-weight: bold'>Pending</td>
-                <td class='pendingActions'><a href='./index.php?approveId={$pending["id"]}'>Approve</a><button onClick='handleReject({$pending["id"]})'>Reject</button></td>
+                <td class='pendingActions'><a href='./index.php?approveId={$pending["id"]}&customer_email={$pending["customer_email"]}&product={$pending["desired_product"]}'>Approve</a><button onClick='handleReject({$pending["id"]})'>Reject</button></td>
               </tr>";
                   }
                 } else {
