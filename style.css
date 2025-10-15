@@ -154,10 +154,10 @@ a {
 }
 .givenTasks table td {
   border: 1px solid gainsboro;
-  padding: 5px;
+  padding: 8px;
   text-align: center;
 }
-.givenTasks #viewButton {
+.givenTasks .viewButton {
   color: var(--primaryColor);
   font-weight: bold;
   cursor: pointer;
@@ -410,6 +410,17 @@ a {
 }
 #documentContainer .document .docDescription .btn {
   margin: 0;
+}
+.taskActionBtn {
+  padding: 5px;
+  border-radius: 3px;
+  font-size: 14px;
+  color: white;
+  font-weight: bold;
+}
+.docViewBtn {
+  color: var(--primaryColor);
+  font-weight: bold;
 }
 /* mobile protection */
 #mobileView {

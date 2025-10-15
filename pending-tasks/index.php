@@ -40,26 +40,29 @@ if (!empty($profile_data['profile_image'])) {
         $profile_image_path = './placeholder.jpg';
     }
 }
+include_once("../php/tasks_operations.php");
 ?>
 <!-- Pending task page -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style.css">
     <!-- FontAwesome cdn -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Employee Dashboard</title>
 </head>
+
 <body>
-        <!-- mobile protection -->
-     <?php include_once("../components/mobile.php");?>
+    <!-- mobile protection -->
+    <?php include_once("../components/mobile.php"); ?>
     <section id="container">
         <!-- Sidebar -->
-        <?php include_once("../components/sidebar.php")?>
+        <?php include_once("../components/sidebar.php") ?>
         <main class="main">
-             <?php include_once("../components/topbar.php")?>
+            <?php include_once("../components/topbar.php") ?>
             <div class="newTasksContainer">
                 <!-- Running Task container -->
                 <div class="runningTask">
@@ -72,47 +75,39 @@ if (!empty($profile_data['profile_image'])) {
                     <table>
                         <thead>
                             <tr>
-                                <th>SL</th>
+                                <th>Task ID</th>
+                                <th>Title</th>
+                                <th>Description</th>
+                                <th>Document</th>
                                 <th>Assign Date</th>
-                                <th>Details</th>
-                                <th>Schedule</th>
+                                <th>Deadline</th>
                                 <th>Status</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <!-- Singles task -->
-                            <!-- <tr>
-                                <td>01</td>
-                                <td>9/16/2025 | 11:00 AM</td>
-                                <td>Employee management website... <span class="viewButton">view</span></td>
-                                <td>9/16/2025 To 9/30/2025</td>
-                                <td>
-                                    <select name="status" id="status">
-                                        <option value="pending">pending</option>
-                                        <option value="started">started</option>
-                                        <option value="paused">paused</option>
-                                        <option value="complete">complete</option>
-                                    </select>
-                                </td>
-                            </tr> -->
-                            <!-- Singles task -->
-                            <!-- <tr>
-                                <td>02</td>
-                                <td>9/16/2025 | 11:00 AM</td>
-                                <td>Employee management website... <span class="viewButton">view</span></td>
-                                <td>9/16/2025 To 9/30/2025</td>
-                                <td>
-                                    <select name="status" id="status">
-                                        <option value="pending">pending</option>
-                                        <option value="started">started</option>
-                                        <option value="paused">paused</option>
-                                        <option value="complete">complete</option>
-                                    </select>
-                                </td>
-                            </tr> -->
-                            <tr>
-                                <td colspan="5">Task Not Found</td>
+                            <?php
+                            if (isset($pending_tasks) && count($pending_tasks) > 0) {
+                                foreach ($pending_tasks as $pending_task) {
+                                    $p_doc_link = "../uploads/" . $pending_task["task_document"];
+                                    $short_p_t_description = substr($pending_task["task_description"], 0, 50);
+                                    echo "
+                                <tr>
+                                <td>{$pending_task['id']}</td>
+                                <td>{$pending_task['task_title']}</td>
+                                <td title='{$pending_task['task_description']}'>$short_p_t_description ...</td>
+                                <td><a href='$p_doc_link' target='_blank' class='docViewBtn'>View</a></td>
+                                <td>{$pending_task['created_at']}</td>
+                                <td>{$pending_task['dead_line']}</td>
+                                <td style='text-transform:capitalize'>{$pending_task['status']}</td>
+                                <td><a href='./index.php?start_task={$pending_task['id']}' class='taskActionBtn' style='background-color: green;'>Start</a></td>
                             </tr>
+                                    
+                                    ";
+                                }
+                            }
+                            ?>
+
                         </tbody>
                     </table>
                 </div>
@@ -133,14 +128,15 @@ if (!empty($profile_data['profile_image'])) {
         const taskViewCloseBtn = document.getElementById("taskViewCloseBtn");
 
         viewButtons.forEach(button => {
-        button.addEventListener("click", () => {
-            taskViewPopup.style.display = "flex";
-        });
+            button.addEventListener("click", () => {
+                taskViewPopup.style.display = "flex";
+            });
         });
 
         taskViewCloseBtn.addEventListener("click", () => {
-        taskViewPopup.style.display = "none";
+            taskViewPopup.style.display = "none";
         });
     </script>
 </body>
+
 </html>
