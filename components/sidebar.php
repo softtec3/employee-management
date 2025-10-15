@@ -116,7 +116,6 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
 // Get user info from session
 $employee_id = $_SESSION['employee_id'] ?? 'N/A';
 $employee_name = $_SESSION['name'] ?? 'Unknown User';
-
 // Fetch profile data from database for display
 $profile_data = [];
 // $stmt = $conn->prepare("SELECT profile_image, first_name, last_name, status FROM employee_personal_details WHERE employee_id = ?");
@@ -207,7 +206,7 @@ echo "<!-- Debug: profile_image_path = " . $profile_image_path . " -->";
                 $doc_con = "pointer-events:none";
             }
             echo "
-            <a style='$doc_con' href='../appointment-letter/index.php'><i class='fa-solid fa-folder-open'></i> Appointment letter</a>";
+            <a style='$doc_con' href='../appointment-letter/index.php'><i class='fa-solid fa-file-signature'></i> Appointment letter</a>";
         } else {
             echo "";
         }
@@ -226,7 +225,7 @@ echo "<!-- Debug: profile_image_path = " . $profile_image_path . " -->";
             echo "";
         }
         ?>
-
+        <a href="../leave-application/index.php"><i class="fa-solid fa-calendar-days"></i> Leave application</a>
     </div>
     <!-- Profile login popup -->
     <div id="loginPopup" style="display:none">

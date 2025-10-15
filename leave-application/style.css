@@ -1,0 +1,61 @@
+.viewDocLink {
+  color: var(--primaryColor);
+  font-weight: bold;
+}
+.leaveTitleAndBtn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#leaveApplicationContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  width: 100%;
+  height: 100vh;
+  display: none;
+}
+.leaveApplicationContent {
+  background-color: white;
+  padding: 20px;
+  border-radius: 6px;
+  min-width: 450px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+}
+.leaveApplicationContent h2 {
+  text-align: center;
+}
+.formElement {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.formElement input,
+.formElement select,
+.formElement textarea {
+  width: 100%;
+  border: 1px solid gainsboro;
+  padding: 8px;
+  border-radius: 3px;
+  outline: none;
+}
+#leaveApplicationContainerClose {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid gainsboro;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}

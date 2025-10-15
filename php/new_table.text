@@ -1,0 +1,15 @@
+//leave_applications
+
+CREATE TABLE IF NOT EXISTS leave_applications(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    employee_id VARCHAR(20) NOT NULL,
+    full_name VARCHAR(100) NOT NULL,
+    from_date VARCHAR(100) NOT NULL,
+    to_date VARCHAR(100) NOT NULL,
+    reason TEXT NOT NULL,
+    application TEXT NOT NULL,
+    FOREIGN KEY(employee_id) REFERENCES employee_log(employee_id) ON DELETE CASCADE ON UPDATE CASCADE,
+    status ENUM
+        ('pending', 'approved', 'reject') DEFAULT 'pending',
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
