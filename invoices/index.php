@@ -424,6 +424,7 @@ if (!empty($profile_data['profile_image'])) {
             </form>
           </div>
         </div>
+
       </div>
     </main>
   </section>

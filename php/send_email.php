@@ -8,6 +8,7 @@ require 'PHPMailer/src/PHPMailer.php';
 require 'PHPMailer/src/SMTP.php';
 require_once("./db_connect.php");
 include_once("./config.php");
+$email_message_status = NULL;
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $product = $_POST['seSelect'];
     $to = $_POST['seEmail'];
@@ -60,22 +61,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (!$stmt->execute()) {
             die("Execution error:" . $stmt->error);
         }
-
-        echo "✅ Message sent successfully! <br/>";
-        echo "Successfully saved to database. <br/>";
-        echo "Wait....";
         echo "<script>
-            setTimeout(()=>{
+                alert('✅ Message sent successfully! ');
                 window.location.href = '../index.php';
-            },1000)
         </script>";
     } catch (Exception $e) {
-        echo "❌ Message could not be sent. Mailer Error: {$mail->ErrorInfo} <br/>";
-        echo "Wait.. It will auto redirect to home page after 10 second";
+        // echo "❌ Message could not be sent. Mailer Error: {$mail->ErrorInfo} <br/>";
+        // echo "Wait.. It will auto redirect to home page after 10 second";
         echo "<script>
-            setTimeout(()=>{
-                window.location.href = '../index.php';
-            },9000)
+        alert('❌ Message could not be sent.');
+        window.location.href = '../index.php';
         </script>";
     }
 }
