@@ -1,0 +1,18 @@
+.projectSelect {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.projectSelect select {
+  padding: 5px;
+  border: 1px solid gainsboro;
+  border-radius: 5px;
+  outline: none;
+}
+.linkBtn {
+  padding: 3px 8px;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  border-radius: 3px;
+}

@@ -154,12 +154,13 @@ if (!empty($profile_data['profile_image'])) {
         $profile_image_path = '../placeholder.jpg';
     }
 }
-
+include_once("../php/projects.php");
 // Debug: Print the variables
 echo "<!-- Debug: employee_id = " . $employee_id . " -->";
 echo "<!-- Debug: employee_name = " . $employee_name . " -->";
 echo "<!-- Debug: display_name = " . $display_name . " -->";
 echo "<!-- Debug: profile_image_path = " . $profile_image_path . " -->";
+
 ?>
 <!-- This is sidebar -->
 <aside class="sidebar">
@@ -200,6 +201,11 @@ echo "<!-- Debug: profile_image_path = " . $profile_image_path . " -->";
         <a href="../pending-tasks/index.php"><i class="fas fa-hourglass-half"></i> Pending Tasks</a>
         <a href="../tasks-report/index.php"> <i class="fa-solid fa-list-check"></i> Tasks Report</a>
         <a href="../invoices/index.php"><i class="fa-solid fa-file-invoice-dollar"></i></i> Invoices</a>
+        <a style="display: <?php
+                            if ($project_access == NULL) {
+                                echo "none";
+                            }
+                            ?>;" href="../projects/index.php"><i class="fa-solid fa-diagram-project"></i> Projects</a>
         <?php
         if ($profile_data["status"] ?? NULL) {
             $doc_con = "";

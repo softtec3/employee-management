@@ -1,4 +1,5 @@
 <?php
+$all_targeted_tasks = [];
 // get all task based on id
 
 $stmt = $conn->prepare("SELECT id, created_at, dead_line, completed_date, status FROM tasks WHERE employee_id=? ORDER BY created_at DESC");
